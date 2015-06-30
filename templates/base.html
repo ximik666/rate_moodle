@@ -8,12 +8,18 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
     <meta charset="utf-8">
-
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/jquery.rating.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.rating-2.0.js')}}" ></script>
+
     {% endblock %}
   </head>
   <body>
+
     {% block navbar %}
 
     {% endblock %}
@@ -29,8 +35,7 @@
         {% endblock %}
     </div>
     {% block js_footer %}
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
     {% endblock %}
   </body>
 </html>

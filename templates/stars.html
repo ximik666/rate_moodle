@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %} - Главная{% endblock %}
+{% block content %}
+
+<script type="text/javascript">
+$(function(){
+
+	$('#rating_1').rating({
+		fx: 'full',
+        image: 'static/images/stars.png',
+        loader: 'static/images/ajax-loader.gif',
+		url: 'rating.php',
+        callback: function(responce){
+
+            this.vote_success.fadeOut(2000);
+        }
+	});
+
+	$('#rating_2').rating({
+		fx: 'half',
+        image: 'static/images/stars.png',
+        loader: 'static/images/ajax-loader.gif',
+		url: '/post',
+        callback: function(responce){
+
+            this.vote_success.fadeOut(2000);
+
+            alert('Общий бал: '+this._data.val);
+        }
+	});
+
+	$('#rating_3').rating({
+		fx: 'float',
+        image: 'static/images/stars.png',
+        loader: 'static/images/ajax-loader.gif',
+        minimal: 0.6,
+		url: 'http://127.0.0.1:5001/post',
+        callback: function(responce){
+
+            this.vote_success.fadeOut(2000);
+            if(responce.msg) alert(responce.msg);
+        }
+	});
+})
+</script>
+
+<div class="wrap">
+	<div class="border-wrap">
+		<h1>Примеры рейтингов</h1>
+		<div class="border-wrap">
+			<h2>Пример №1</h2>
+			<div id="rating_1">
+        		<input type="hidden" name="vote-id" value="1"/>
+            </div>
+
+		</div>
+
+
+		<div class="border-wrap">
+			<h2>Пример №2</h2>
+			<div id="rating_2">
+                <input type="hidden" name="val" value="2.75"/>
+                <input type="hidden" name="votes" value="2"/>
+                <input type="hidden" name="vote-id" value="2"/>
+                <input type="hidden" name="cat_id" value="2"/>
+            </div>
+
+		</div>
+
+
+
+		<div class="border-wrap">
+			<h2>Пример №3</h2>
+			<div id="rating_3">
+                <input type="hidden" name="val" value="3.75"/>
+                <input type="hidden" name="votes" value="5"/>
+                <input type="hidden" name="vote-id" value="3"/>
+                <input type="hidden" name="cat_id" value="2"/>
+            </div>
+
+		</div>
+
+	</div>
+</div>
+        {% endblock %}
