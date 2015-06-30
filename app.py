@@ -1,7 +1,7 @@
 # We need to import request to access the details of the POST request
 # and render_template, to render our templates (form and response)
 # we'll use url_for to get some URLs for the app on the templates
-import sys, codecs,
+import sys, codecs
 reload(sys)
 sys.setdefaultencoding('utf-8')
 import sqlite3 as sql
